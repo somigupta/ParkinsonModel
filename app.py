@@ -4,7 +4,7 @@ import torch.nn as nn
 import numpy as np
 from fastapi import FastAPI
 from pydantic import BaseModel
-import joblib  # if you want to load scaler later
+#import joblib  # if you want to load scaler later
 from fastapi.middleware.cors import CORSMiddleware
 
 # =========================
