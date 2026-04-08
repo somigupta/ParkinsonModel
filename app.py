@@ -5,6 +5,7 @@ import numpy as np
 from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib  # if you want to load scaler later
+from fastapi.middleware.cors import CORSMiddleware
 
 # =========================
 # 1. Define Model (same as training)
@@ -42,6 +43,13 @@ class CNNModel(nn.Module):
 # 2. Initialize FastAPI
 # =========================
 app = FastAPI(title="Parkinson's Detection API")
+app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+)
 
 # =========================
 # 3. Load Model
